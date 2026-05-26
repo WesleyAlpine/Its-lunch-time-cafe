@@ -17,7 +17,7 @@
 body{
     font-family: Arial, sans-serif;
     background-image: url("774811.jpg");
-    background-size: cover;       /* Makes image fill screen */
+    background-size: cover; /* Makes image fill screen */
     background-position: center;  /* Centers image */
     background-repeat: no-repeat; /* Stops repeating */
     background-attachment: fixed; /* Keeps image fixed while scrolling */
@@ -29,7 +29,7 @@ body{
 /* Header */
 header{
     background:#d62828;
-    background-image: url("774811");
+    background-image: url("774811.jpg");
     color:white;
     text-align:center;
     padding:25px;
@@ -245,7 +245,7 @@ footer{
         </li>
 
         <li>
-            <img src="https://images.unsplash.com/photo-1543332164-6e82f355badc" alt="Veggie Wrap">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2704281673/display_1500/stock-photo-colorful-fresh-veggie-wrap-with-soft-natural-lighting-2704281673.jpg" alt="Veggie Wrap">
             <h3>Veggie Wrap - P40</h3>
             <p>Fresh veggies and hummus</p>
         </li>
@@ -257,16 +257,41 @@ footer{
         </li>
 
         <li>
-            <img src="https://images.unsplash.com/photo-1612392062798-30ac6f8c8a0b" alt="Hot Dog">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2616271139/display_1500/stock-photo-tasty-hot-dog-with-tomato-onion-lettuce-and-mustard-on-wooden-table-closeup-2616271139.jpg" alt="Hot Dog">
             <h3>Hot Dog - P20</h3>
             <p>Classic grilled sausage in a soft bun</p>
         </li>
 
         <li>
-            <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e" alt="Milkshake">
+            <img src="https://www.shutterstock.com/image-photo/milkshakes-different-flavors-on-white-600w-2743692741.jpg" alt="Milkshake">
             <h3>Milkshake - P22</h3>
             <p>Chocolate, vanilla or strawberry</p>
-        </li>
+        <li>
+            <div class="menu">
+
+    <h2>🍔 Food Menu</h2>
+
+    <div class="menu-item">
+        <img src="https://www.shutterstock.com/shutterstock/photos/658796548/display_1500/stock-photo--june-burgas-bulgaria-homemade-maxi-burger-with-grilled-beef-steak-lettuce-cheese-658796548.jpg" alt="Burger & Fries">
+        <p>Burger & Fries - P55</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://www.shutterstock.com/shutterstock/photos/2687727527/display_1500/stock-photo-delicious-chicken-wrap-isolated-on-white-background-the-wrap-is-filled-with-grilled-chicken-2687727527.jpg" alt="Chicken Wrap">
+        <p>Chicken Wrap - P45</p>
+    </div>
+
+    <div class="menu-item">
+        <img src="https://www.shutterstock.com/shutterstock/photos/2530321781/display_1500/stock-photo-a-single-slice-of-pizza-with-a-crispy-crust-isolated-on-white-2530321781.jpg" alt="Pizza Slice">
+        <p>Pizza Slice - P40</p>
+    </div>
+
+    <h2>🥤 Drinks</h2>
+
+    <div class="menu-item">
+        <img src="https://www.shutterstock.com/shutterstock/photos/2307901041/display_1500/stock-photo-phuket-thailand-march-man-hand-with-coke-cola-softdrink-can-and-a-glass-a-carbonated-2307901041.jpg" alt="Coca-Cola">
+        <p>Coca-Cola - P15</p>
+    </div>
     </ul>
 </section>
 
@@ -291,6 +316,19 @@ footer{
             <option>Chicken Tacos - P20</option>
             <option>Hot Dog - P20</option>
             <option>Milkshake - P22</option>
+            <option>Burger & Fries - P55</option>
+            <option>Chicken Wrap - P45</option>
+            <option>Pizza Slice - P40</option>
+            <option>Coca-Cola - P15</option>
+            <div class="order-menu">
+
+</div>
+
+<script>
+function orderItem(item){
+    alert(item + " added to your order!");
+}
+</script>
         </select>
 
         <label>Quantity:</label>
@@ -310,12 +348,32 @@ footer{
         <button type="submit">Submit Order</button>
 
     </form>
-</section>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    const data = {
+        name: document.getElementById("name").value,
+        order: document.getElementById("order").value
+    };
+
+    const response = await fetch("/order", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
+
+    alert("Order sent!");
+});
+</script>
 
 <section id="contact">
     <h2>Contact & Social</h2>
     <p>
-        <a href="mailto:itslunchtime@gmail.com">Email Us</a> |
+        <a href="wesleysoko152@gmail.com">Email Us</a> |
         <a href="tel:+26771234567">+267 71 234 567</a> |
         <a href="https://facebook.com" target="_blank">Facebook</a>
     </p>
